@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // import Controller
-use Illuminate\Http\Controllers\GetController;
+use App\Http\Controllers\GetController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -12,4 +12,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Create get Api routes
-Route::get('/demo' ,[GetController::class , 'index']);
+
+Route::get('/d',[GetController::class,'index']);

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -17,12 +16,12 @@ class GetController extends Controller
                 'name' => 'Anu Singh',
                 'email' => 'Anu@gmail.com'
             ]
-            ];
-            return responce()->json([
-                'message' => '2User found',
-                'data' => $array,
-                'status' => true
-            ], 200);
-        
+        ];
+
+        return response()->json([
+            'message' => '2User found',
+            'data' => $array,
+            'status' => true
+        ], 200);   
     }
 }
