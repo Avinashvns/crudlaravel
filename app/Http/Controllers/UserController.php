@@ -28,14 +28,14 @@ class UserController extends Controller
         if($Singleuser != null){
             return response()->json(
                 [
-                'message' => count($users).' User found',
+                'message' =>' User found',
                 'data' => $Singleuser,
                 'status' => true
             ]);
 
         } else{
             return response()-> json ([
-                'message' => count($users).' User found',
+                'message' => ' User not found',
                 'data' => [],
                 'status' => true
             ]);

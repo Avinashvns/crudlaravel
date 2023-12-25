@@ -18,3 +18,6 @@ Route::get('/d',[GetController::class,'index']);
 
 // Create get Api routes data  in show from Table db
 Route::get('/user',[UserController::class,'index']);
+
+// Create Single data call get Api routes data  in show from Table db
+Route::get('/users/{user}',[UserController::class,'show']);
