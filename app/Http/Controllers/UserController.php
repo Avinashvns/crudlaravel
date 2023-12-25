@@ -46,6 +46,8 @@ class UserController extends Controller
 
     // Create Post Api 
     public function postuser(Request $request){
+
+        // if Data is available then Validate data
         $validator= Validator::make($request->all(),[
             'name' => 'required',
             'email' => 'required|email',
@@ -72,5 +74,42 @@ class UserController extends Controller
             'status' => true
         ],200); 
 
+    }
+    // Create Update Api
+    public function update(Request $request , $id){
+        $user =User::find($id);
+        if($user == null){
+            return response()-> json ([
+                'message' => ' User not Found',
+                'status' => false
+            ],200); 
+        }
+
+        // if Data is available then Validate data
+
+        $validator= Validator::make($request->all(),[
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        if($validator -> fails()){
+            return response()-> json ([
+                'message' => ' Please fix the errors',
+                'errors' => $validator ->errors(),
+                'status' => false
+            ],200);  
+        }
+
+        // Record Update Code here
+        $user ->name = $request->name ;
+        $user ->email = $request->email;
+        $user ->save();
+
+        // return json response
+        return response()-> json ([
+            'message' => ' User Updated Successfully',
+            'data'=> $user,
+            'status' => false
+        ],200);  
     }
 }
