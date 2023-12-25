@@ -75,7 +75,7 @@ class UserController extends Controller
         ],200); 
 
     }
-    
+
     // Create Update Api
     public function update(Request $request , $id){
         $user =User::find($id);
@@ -112,5 +112,25 @@ class UserController extends Controller
             'data'=> $user,
             'status' => false
         ],200);  
+    }
+    // delet Api
+    public function delete(Request $request,$id){
+        $user = User::find($id);
+
+        if($user == null){
+            return response()-> json ([
+                'message' => ' User not Found',
+                'status' => false
+            ],200); 
+        }
+
+        // Delete method
+        $user -> delete();
+
+        // return json delete response
+        return response()-> json ([
+            'message' => ' User Deleted Successfully',
+            'status' => false
+        ],200); 
     }
 }
