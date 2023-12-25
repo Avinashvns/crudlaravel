@@ -75,6 +75,7 @@ class UserController extends Controller
         ],200); 
 
     }
+    
     // Create Update Api
     public function update(Request $request , $id){
         $user =User::find($id);

@@ -24,3 +24,6 @@ Route::get('/users/{user}',[UserController::class,'show']);
 
 // Create post Api routes data added in Table db
 Route::post('/adduser',[UserController::class,'postuser']);
+
+// Create post Api routes data added in Table db
+Route::put('/updateuser/{id}',[UserController::class,'update']);
