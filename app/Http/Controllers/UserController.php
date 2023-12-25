@@ -19,4 +19,26 @@ class UserController extends Controller
         ] , 200
     );
     }
+
+    // Create a get api of single user
+
+    public function show($id){
+        $Singleuser = User::find($id);
+
+        if($Singleuser != null){
+            return response()->json(
+                [
+                'message' => count($users).' User found',
+                'data' => $Singleuser,
+                'status' => true
+            ]);
+
+        } else{
+            return response()-> json ([
+                'message' => count($users).' User found',
+                'data' => [],
+                'status' => true
+            ]);
+        }
+    }
 }
