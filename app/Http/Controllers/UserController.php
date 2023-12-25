@@ -31,14 +31,14 @@ class UserController extends Controller
                 'message' =>' User found',
                 'data' => $Singleuser,
                 'status' => true
-            ]);
+            ],200);
 
         } else{
             return response()-> json ([
                 'message' => ' User not found',
                 'data' => [],
                 'status' => true
-            ]);
+            ],200);
         }
     }
 }
