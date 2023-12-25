@@ -25,5 +25,8 @@ Route::get('/users/{user}',[UserController::class,'show']);
 // Create post Api routes data added in Table db
 Route::post('/adduser',[UserController::class,'postuser']);
 
-// Create post Api routes data added in Table db
+// Create Update Api routes data Updated in Table db
 Route::put('/updateuser/{id}',[UserController::class,'update']);
+
+// Create delete Api routes data deleted in Table db
+Route::delete('/deleteuser/{id}',[UserController::class,'delete']);

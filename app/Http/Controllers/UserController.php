@@ -114,7 +114,7 @@ class UserController extends Controller
         ],200);  
     }
     // delet Api
-    public function delete(Request $request,$id){
+    public function delete($id){
         $user = User::find($id);
 
         if($user == null){
