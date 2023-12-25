@@ -21,3 +21,6 @@ Route::get('/user',[UserController::class,'index']);
 
 // Create Single data call get Api routes data  in show from Table db
 Route::get('/users/{user}',[UserController::class,'show']);
+
+// Create post Api routes data added in Table db
+Route::post('/adduser',[UserController::class,'postuser']);
