@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
+use Illuminate\Support\Facades\Validator;
+
 class UserController extends Controller
 {
     //
@@ -40,5 +42,35 @@ class UserController extends Controller
                 'status' => true
             ],200);
         }
+    }
+
+    // Create Post Api 
+    public function postuser(Request $request){
+        $validator= Validator::make($request->all(),[
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        if($validator -> fails()){
+            return response()-> json ([
+                'message' => ' Please fix the errors',
+                'errors' => $validator ->errors(),
+                'status' => false
+            ],200);  
+        }
+        
+        $user = new User;
+        $user -> name = $request->name;
+        $user -> email = $request->email;
+        $user -> password = $request->password;
+        $user -> save();
+
+        return response()-> json ([
+            'message' => ' User added successfully',
+            'data'=> $user,
+            'status' => true
+        ],200); 
+
     }
 }
